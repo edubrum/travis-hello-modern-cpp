@@ -1,0 +1,48 @@
+        -:    0:Source:identifier.c
+        -:    0:Graph:identifier.gcno
+        -:    0:Data:identifier.gcda
+        -:    0:Runs:4
+        -:    0:Programs:1
+        -:    1:#include <stdio.h>
+        -:    2:
+        4:    3:int valid_s (char ch){
+        4:    4:	if (((ch >= 'A') && (ch <= 'Z')) || ((ch >= 'a') && (ch <= 'z')))
+        4:    5:		return (1);    
+        -:    6:	else       
+    #####:    7:		return (0); 
+        -:    8:} 
+        -:    9:      
+       17:   10:int valid_f(ch) char ch; {
+       17:   11:	if (((ch >= 'A') && (ch <= 'Z')) || ((ch >= 'a') && (ch <= 'z')) || ((ch >= '0') && (ch <= '9')))       
+       17:   12:		return (1);    
+        -:   13:	else        
+    #####:   14:		return (0); 
+        -:   15:}
+        -:   16:
+        4:   17:int main ()
+        -:   18:{ 
+        -:   19:	char  achar; 
+        -:   20:	int   length, valid_id;
+        4:   21:	length = 0;
+        4:   22:	printf ("Identificador: ");
+        4:   23:	achar = fgetc (stdin);
+        4:   24:	valid_id = valid_s(achar);
+        4:   25:	if (valid_id) 
+        4:   26:		length = 1; 
+        -:   27:		
+        4:   28:	achar = fgetc (stdin);
+       21:   29:	while (achar != '\n'){
+       17:   30:		if (!(valid_f(achar))) 
+    #####:   31:			valid_id = 0; 
+       17:   32:		length++; 
+       17:   33:		achar = fgetc (stdin);
+        -:   34:	} 
+        4:   35:	if (valid_id && (length >= 1) && (length < 6) ) {
+        2:   36:		printf ("Valido\n"); 
+        2:   37:        return 0;
+        -:   38:    }else {
+        2:   39:		printf ("Invalido\n");	
+        2:   40:        return 1;
+        -:   41:    }
+        -:   42:
+        -:   43:}
