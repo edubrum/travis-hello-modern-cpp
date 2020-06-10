@@ -8,7 +8,7 @@ GCCFLAGS = -g -Wall -Wfatal-errors
 ALL = identifier
 GCC = gcc
 
-all: $(ALL)
+all: cov cppcheck valgrind sanitize
 	
 identifier: identifier.c
 	$(GCC) $(GCCFLAGS) -o $@ $@.c
