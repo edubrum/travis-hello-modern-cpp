@@ -12,12 +12,11 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - gcc
-  homebrew:
-		packages:
 		- cppcheck
 		- valgrind
+
 install:
-- "[ $GCC = gcc ] && export GCC=gcc || true"
+	- "[ $GCC = gcc ] && export GCC=gcc || true"
 script:
   - make
 	- make test
