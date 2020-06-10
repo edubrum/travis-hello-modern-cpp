@@ -12,7 +12,6 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - gcc
-		- valgrind
 
 install:
 	- "[ $GCC = gcc ] && export GCC=gcc || true"
