@@ -1,0 +1,9 @@
+#!/bin/bash
+#!/usr/bin/bash
+
+echo "Teste 4: Entrada: 9 / Saída Esperada: Invalido"
+echo 9 | ./cov
+echo "Teste 5: Entrada: edu@r / Saída Esperada: Invalido"
+echo "edu@r" | ./cov
+echo "Teste 6: Entrada: e3d / Saída Esperada: Inválido"
+echo "e3d" | ./cov

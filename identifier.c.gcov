@@ -1,80 +1,80 @@
         -:    0:Source:identifier.c
         -:    0:Graph:identifier.gcno
         -:    0:Data:identifier.gcda
-        -:    0:Runs:3
+        -:    0:Runs:5
         -:    0:Programs:1
         -:    1:#include <stdio.h>
         -:    2:
-function valid_s called 3 returned 100% blocks executed 86%
-        3:    3:int valid_s (char ch){
-        3:    4:	if (((ch >= 'A') && (ch <= 'Z')) || ((ch >= 'a') && (ch <= 'z')))
-branch  0 taken 100% (fallthrough)
-branch  1 taken 0%
-branch  2 taken 100% (fallthrough)
-branch  3 taken 0%
-branch  4 taken 100% (fallthrough)
-branch  5 taken 0%
-branch  6 taken 100% (fallthrough)
-branch  7 taken 0%
-        3:    5:		return (1);    
-        -:    6:	else       
-    #####:    7:		return (0); 
-        -:    8:} 
-        -:    9:      
-function valid_f called 10 returned 100% blocks executed 89%
-       10:   10:int valid_f(ch) char ch; {
-       10:   11:	if (((ch >= 'A') && (ch <= 'Z')) || ((ch >= 'a') && (ch <= 'z')) || ((ch >= '0') && (ch <= '9')))       
+function valid_s called 5 returned 100% blocks executed 100%
+        5:    3:int valid_s (char ch){
+        5:    4:	if (((ch >= 'A') && (ch <= 'Z')) || ((ch >= 'a') && (ch <= 'z')))
 branch  0 taken 80% (fallthrough)
 branch  1 taken 20%
 branch  2 taken 100% (fallthrough)
 branch  3 taken 0%
 branch  4 taken 80% (fallthrough)
 branch  5 taken 20%
+branch  6 taken 100% (fallthrough)
+branch  7 taken 0%
+        4:    5:		return (1);    
+        -:    6:	else       
+        1:    7:		return (0); 
+        -:    8:} 
+        -:    9:      
+function valid_f called 14 returned 100% blocks executed 100%
+       14:   10:int valid_f(ch) char ch; {
+       14:   11:	if (((ch >= 'A') && (ch <= 'Z')) || ((ch >= 'a') && (ch <= 'z')) || ((ch >= '0') && (ch <= '9')))       
+branch  0 taken 79% (fallthrough)
+branch  1 taken 21%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0%
+branch  4 taken 79% (fallthrough)
+branch  5 taken 21%
 branch  6 taken 0% (fallthrough)
 branch  7 taken 100%
 branch  8 taken 100% (fallthrough)
 branch  9 taken 0%
-branch 10 taken 100% (fallthrough)
-branch 11 taken 0%
-       10:   12:		return (1);    
+branch 10 taken 67% (fallthrough)
+branch 11 taken 33%
+       13:   12:		return (1);    
         -:   13:	else        
-    #####:   14:		return (0); 
+        1:   14:		return (0); 
         -:   15:}
         -:   16:
-function main called 3 returned 100% blocks executed 86%
-        3:   17:int main ()
+function main called 5 returned 100% blocks executed 100%
+        5:   17:int main ()
         -:   18:{ 
         -:   19:	char  achar; 
         -:   20:	int   length, valid_id;
-        3:   21:	length = 0;
-        3:   22:	printf ("Identificador: ");
+        5:   21:	length = 0;
+        5:   22:	printf ("Identificador: ");
 call    0 returned 100%
-        3:   23:	achar = fgetc (stdin);
+        5:   23:	achar = fgetc (stdin);
 call    0 returned 100%
-        3:   24:	valid_id = valid_s(achar);
+        5:   24:	valid_id = valid_s(achar);
 call    0 returned 100%
-        3:   25:	if (valid_id) 
-branch  0 taken 100% (fallthrough)
-branch  1 taken 0%
-        3:   26:		length = 1; 
+        5:   25:	if (valid_id) 
+branch  0 taken 80% (fallthrough)
+branch  1 taken 20%
+        4:   26:		length = 1; 
         -:   27:		
-        3:   28:	achar = fgetc (stdin);
+        5:   28:	achar = fgetc (stdin);
 call    0 returned 100%
-       13:   29:	while (achar != '\n'){
-branch  0 taken 77%
-branch  1 taken 23% (fallthrough)
-       10:   30:		if (!(valid_f(achar))) 
+       19:   29:	while (achar != '\n'){
+branch  0 taken 74%
+branch  1 taken 26% (fallthrough)
+       14:   30:		if (!(valid_f(achar))) 
 call    0 returned 100%
-branch  1 taken 0% (fallthrough)
-branch  2 taken 100%
-    #####:   31:			valid_id = 0; 
-       10:   32:		length++; 
-       10:   33:		achar = fgetc (stdin);
+branch  1 taken 7% (fallthrough)
+branch  2 taken 93%
+        1:   31:			valid_id = 0; 
+       14:   32:		length++; 
+       14:   33:		achar = fgetc (stdin);
 call    0 returned 100%
         -:   34:	} 
-        3:   35:	if (valid_id && (length >= 1) && (length < 6) ) {
-branch  0 taken 100% (fallthrough)
-branch  1 taken 0%
+        5:   35:	if (valid_id && (length >= 1) && (length < 6) ) {
+branch  0 taken 60% (fallthrough)
+branch  1 taken 40%
 branch  2 taken 100% (fallthrough)
 branch  3 taken 0%
 branch  4 taken 100% (fallthrough)
@@ -83,9 +83,9 @@ branch  5 taken 0%
 call    0 returned 100%
         3:   37:        return 0;
         -:   38:    }else {
-    #####:   39:		printf ("Invalido\n");	
-call    0 never executed
-    #####:   40:        return 1;
+        2:   39:		printf ("Invalido\n");	
+call    0 returned 100%
+        2:   40:        return 1;
         -:   41:    }
         -:   42:
         -:   43:}
