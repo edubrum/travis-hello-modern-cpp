@@ -15,6 +15,9 @@ all: testsdone
 testsdone: cov cppcheck valgrind sanitize 
 	
 cov: identifier.c
+	@echo " "
+	@echo "----------------------------------------------------------"
+	@echo " "
 	@echo "Runinng GCOV"
 	@echo " "	
 	$(GCC) $(GCCFLAGS) -fprofile-arcs -ftest-coverage -o $@ identifier.c
@@ -63,7 +66,8 @@ sanitize:
 	@echo "abab1"  | ./identifier.exe
 	@bash invalid_sanitize	
 	@echo " "
-
+	@echo "----------------------------------------------------------"
+	@echo " "
 clean:
 	$(RM) $(ALL)   *.o
 	

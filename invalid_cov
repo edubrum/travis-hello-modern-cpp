@@ -1,13 +1,13 @@
 #!/bin/bash
 #!/usr/bin/bash
 
-echo "Teste 3: Entrada: 947 / Saída Esperada: Invalido"
+echo "Teste 3: Entrada: 947 / Espera-se: Invalido"
 echo 947 | ./cov
-echo "Teste 4: Entrada: edu@r / Saída Esperada: Invalido"
+echo "Teste 4: Entrada: edu@r / Espera-se: Invalido"
 echo "edu@r" | ./cov
-echo "Teste 5: Entrada: Espaço em Branco / Saída Esperada: Invalido"
+echo "Teste 5: Entrada: Espaço em Branco / Espera-se: Invalido"
 echo " " | ./cov
-echo "Teste 6: Entrada: eduardodebrum / Saída Esperada: Invalido"
+echo "Teste 6: Entrada: eduardodebrum / Espera-se: Invalido"
 echo "eduardodebrum" | ./cov
-echo "Teste 7: Entrada: e3d / Saída Esperada: Válido"
+echo "Teste 7: Entrada: e3d / Espera-se: Válido"
 echo "e3d" | ./cov
