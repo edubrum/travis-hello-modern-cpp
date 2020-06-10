@@ -12,10 +12,8 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - gcc
-		- valgrind
-		- cppcheck
 install:
 - "[ $GCC = gcc ] && export GCC=gcc || true"
 script:
   - make
-
+	
