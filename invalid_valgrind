@@ -2,8 +2,8 @@
 #!/usr/bin/bash
 
 echo "Teste 3: Entrada: 9 / Saída Esperada: Invalido"
-echo 9 | ./cov
+echo 9 | valgrind --leak-check=full --show-leak-kinds=all ./identifier.exe
 echo "Teste 4: Entrada: edu@r / Saída Esperada: Invalido"
-echo "edu@r" | ./cov
-echo "Teste 5: Entrada: e3d / Saída Esperada: Inválido"
-echo "e3d" | ./cov
+echo "edu@r" | valgrind --leak-check=full --show-leak-kinds=all ./identifier.exe
+echo "Teste 5: Entrada: e3d / Saída Esperada: Válido"
+echo "e3d" | valgrind --leak-check=full --show-leak-kinds=all ./identifier.exe

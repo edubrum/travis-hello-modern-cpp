@@ -8,7 +8,11 @@ GCCFLAGS = -g -Wall -Wfatal-errors
 ALL = identifier
 GCC = gcc
 
-all: tests 
+all: testsdone
+	@rm cov
+	@rm identifier.exe
+
+testsdone: cov cppcheck valgrind sanitize 
 	
 cov: identifier.c
 	@echo "Runinng GCOV"
@@ -19,9 +23,11 @@ cov: identifier.c
 	@echo "abcde"  | ./cov
 	@echo "Teste 2: Entrada:abab1   Espera-se: Válido"
 	@echo "abab1"  | ./cov
-	bash invalid_cov
+	@bash invalid_cov
 	@echo " "
 	gcov -b identifier.c
+	@echo " "
+	@echo "----------------------------------------------------------"
 	@echo " "
 
 cppcheck: identifier.c
@@ -29,7 +35,9 @@ cppcheck: identifier.c
 	@echo " "
 	cppcheck --enable=all --suppress=missingIncludeSystem identifier.c
 	@echo " "
-	
+	@echo "----------------------------------------------------------"
+	@echo " "
+
 valgrind:
 	@echo "Runinng Valgrind"
 	@echo " "
@@ -39,8 +47,11 @@ valgrind:
 	@echo "abcde"  | valgrind --leak-check=full --show-leak-kinds=all ./identifier.exe
 	@echo "Teste 2: Entrada:abab1   Espera-se: Válido"
 	@echo "abab1"  | valgrind --leak-check=full --show-leak-kinds=all ./identifier.exe
-	bash invalid_valgrind
+	@bash invalid_valgrind
 	@echo " "
+	@echo "----------------------------------------------------------"
+	@echo " "
+
 sanitize:
 	@echo "Runinng Sanitize"
 	@echo " "
@@ -50,15 +61,9 @@ sanitize:
 	@echo "abcde"  | ./identifier.exe
 	@echo "Teste 2: Entrada:abab1   Espera-se: Válido"
 	@echo "abab1"  | ./identifier.exe
-	@echo "Teste 3: Entrada:e3a   Espera-se: Válido"
-	@echo "e3a"    | ./identifier.exe		
+	@bash invalid_sanitize	
 	@echo " "
-
-rm:
-	@rm cov
 
 clean:
 	$(RM) $(ALL)   *.o
-
-tests: cov cppcheck valgrind sanitize 
 	
