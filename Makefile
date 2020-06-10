@@ -26,7 +26,6 @@ cov: identifier.c
 	@echo "e3a"    | ./cov
 	@echo " "
 	gcov -b identifier.c
-	cat identifier.c.gcov
 	@echo " "
 
 cppcheck: identifier.c
