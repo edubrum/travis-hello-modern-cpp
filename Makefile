@@ -2,6 +2,8 @@
 # For more languages and info see:
 # https://github.com/rsp/travis-hello#readme
 
+#!/usr/bin/env bash
+
 GCCFLAGS = -g -Wall -Wfatal-errors 
 ALL = identifier
 GCC = gcc
